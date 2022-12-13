@@ -7,3 +7,5 @@ html/main.js
 .pulp-cache
 .psc-ide-port
 .psc-package
+.spago
+*.bak
