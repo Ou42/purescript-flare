@@ -20,7 +20,8 @@ import Flare (UI, runFlareShow, runFlare, button, liftSF, buttons, foldp, select
 import Color (rgb, hsl, cssStringHSLA, black)
 import Flare.Drawing (Color, Drawing, runFlareDrawing, path, lineWidth, outlineColor, outlined, fillColor, filled, circle)
 import Flare.Smolder (runFlareHTML)
-import Math (pow, sin, cos, pi, abs)
+-- import Math (pow, sin, cos, pi, abs)
+import Data.Number (pow, sin, cos, pi, abs)
 import Signal.DOM (animationFrame)
 import Signal.Time (since)
 import Text.Smolder.HTML (div, li, ul, table, td, tr) as H
