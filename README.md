@@ -24,6 +24,11 @@ The main design-criterion of this library is ease of use.
 
 ## Building
 ```
+$ purs --version
+0.15.7
+$ spago --version
+0.20.9
+
 $ spago build
 $ spago bundle-app -m Test.Main -t html/main.js --path test/**/*.purs
 ```
