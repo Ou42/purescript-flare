@@ -4,15 +4,15 @@
 
 "use strict";
 
-exports.renderString = function(target) {
+export function renderString(target) {
   return function(content) {
     return function() {
       document.getElementById(target).innerHTML = content;
     };
   };
-};
+}
 
-exports.removeChildren = function(target) {
+export function removeChildren(target) {
   return function() {
     var el = document.getElementById(target);
 
@@ -21,9 +21,9 @@ exports.removeChildren = function(target) {
       el.removeChild(el.firstChild);
     }
   };
-};
+}
 
-exports.createInnerElementP = function(tuple) {
+export function createInnerElementP(tuple) {
   return function () {
     var uid = getUniqueID();
     var el = document.createElement('div');
@@ -33,15 +33,15 @@ exports.createInnerElementP = function(tuple) {
     document.body.appendChild(el);
     return tuple(uid)(el);
   };
-};
+}
 
-exports.appendComponent = function(target) {
+export function appendComponent(target) {
   return function(el) {
     return function() {
       document.getElementById(target).appendChild(el);
     };
   };
-};
+}
 
 // This function maintains a global state `window.flareID` to generate unique
 // DOM element IDs. It is only called from functions with a DOM effect.
@@ -87,7 +87,7 @@ function createComponent(inputType, elementCallback, eventType, eventListener) {
   };
 }
 
-exports.cNumber = createComponent("number",
+export const cNumber = createComponent("number",
   function(initial) {
     var input = document.createElement("input");
     input.type = "number";
@@ -113,7 +113,7 @@ function clamp(min, max, initial, value) {
   return value;
 }
 
-exports.cNumberRange = function(type) {
+export function cNumberRange(type) {
   return function(min) {
     return function(max) {
       return function(step) {
@@ -135,9 +135,9 @@ exports.cNumberRange = function(type) {
       };
     };
   };
-};
+}
 
-exports.cIntRange = function(type) {
+export function cIntRange(type) {
   return function(min) {
     return function(max) {
       return createComponent("int-" + type,
@@ -157,9 +157,9 @@ exports.cIntRange = function(type) {
       );
     };
   };
-};
+}
 
-exports.cString = createComponent("string",
+export const cString = createComponent("string",
   function(initial) {
     var input = document.createElement("input");
     input.type = "text";
@@ -172,7 +172,7 @@ exports.cString = createComponent("string",
   }
 );
 
-exports.cStringPattern = function(pattern) {
+export function cStringPattern(pattern) {
   return createComponent("string-pattern",
     function(initial) {
       var input = document.createElement("input");
@@ -187,9 +187,9 @@ exports.cStringPattern = function(pattern) {
       return t.value;
     }
   );
-};
+}
 
-exports.cBoolean = createComponent("boolean",
+export const cBoolean = createComponent("boolean",
   function(initial) {
     var input = document.createElement("input");
     input.type = "checkbox";
@@ -202,7 +202,7 @@ exports.cBoolean = createComponent("boolean",
   }
 );
 
-exports.cButton = function(vPressed) {
+export function cButton(vPressed) {
   return function(label) {
     return function(vDefault) {
       return function(send) {
@@ -229,9 +229,9 @@ exports.cButton = function(vPressed) {
       };
     };
   };
-};
+}
 
-exports.cSelect = function(xs) {
+export function cSelect(xs) {
   return function(toString) {
     return createComponent("select",
       function(initial) {
@@ -257,9 +257,9 @@ exports.cSelect = function(xs) {
       }
     );
   };
-};
+}
 
-exports.cRadioGroup = function(xs) {
+export function cRadioGroup(xs) {
   return function(toString) {
     return function(label) {
       var uid = getUniqueID();
@@ -306,9 +306,9 @@ exports.cRadioGroup = function(xs) {
       )("");
     };
   };
-};
+}
 
-exports.cTextarea = createComponent("textarea",
+export const cTextarea = createComponent("textarea",
   function(initial) {
     var textarea = document.createElement("textarea");
     textarea.value = initial;
@@ -321,7 +321,7 @@ exports.cTextarea = createComponent("textarea",
 );
 
 
-exports.toFieldset = function(label) {
+export function toFieldset(label) {
   return function(elements) {
     var fieldset = document.createElement("fieldset");
 
@@ -337,10 +337,10 @@ exports.toFieldset = function(label) {
 
     return fieldset;
   };
-};
+}
 
 
-exports.cResizableList = function(prependDefault) {
+export function cResizableList(prependDefault) {
   return function(listUi) {
     return function(label) {
       return function(defaultList) {
@@ -406,9 +406,9 @@ exports.cResizableList = function(prependDefault) {
       };
     };
   };
-};
+}
 
-exports.cColor = createComponent("color",
+export const cColor = createComponent("color",
   function(initial) {
     var input = document.createElement("input");
     input.type = "color";
@@ -429,7 +429,7 @@ function padNumber(num) {
   return str;
 }
 
-exports.cDate = createComponent("date",
+export const cDate = createComponent("date",
   function(initial) {
     var input = document.createElement("input");
     input.type = "date";
@@ -448,7 +448,7 @@ exports.cDate = createComponent("date",
   }
 );
 
-exports.cTime = createComponent("time",
+export const cTime = createComponent("time",
   function(initial) {
     var input = document.createElement("input");
     input.type = "time";
