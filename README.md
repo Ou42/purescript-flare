@@ -24,6 +24,11 @@ The main design-criterion of this library is ease of use.
 
 ## Building
 ```
-bower install
-pulp build -O -I test -m Test.Main -t html/main.js
+$ spago build
+$ spago bundle-app -m Test.Main -t html/main.js --path test/**/*.purs
+```
+
+## See Test (demo) in action
+```
+open html/index.html
 ```
