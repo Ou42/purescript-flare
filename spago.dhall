@@ -11,7 +11,20 @@ When creating a new Spago project, you can use
 to generate this file without the comments in this block.
 -}
 { name = "purescript-flare"
-, dependencies = [ "console", "effect", "prelude" ]
+, dependencies =
+  [ "arrays"
+  , "canvas"
+  , "colors"
+  , "console"
+  , "datetime"
+  , "drawing"
+  , "effect"
+  , "lists"
+  , "maybe"
+  , "prelude"
+  , "signal"
+  , "web-dom"
+  ]
 , packages = ./packages.dhall
 , sources = [ "src/**/*.purs", "test/**/*.purs" ]
 }

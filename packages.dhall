@@ -103,3 +103,13 @@ let upstream =
         sha256:e462fb4d932e4bbc522cb563a71d312d6514f97050125d1a3f95cc3a2df3bffb
 
 in  upstream
+  with drawing =
+    { repo = "https://github.com/Ou42/purescript-drawing.git"
+    , version = "work" -- using branch name
+    , dependencies =
+      [ "canvas"
+      , "colors"
+      , "integers"
+      , "lists"
+      ]
+    }
