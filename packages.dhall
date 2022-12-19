@@ -113,3 +113,26 @@ in  upstream
       , "lists"
       ]
     }
+  with smolder =
+    { repo = "https://github.com/Ou42/purescript-smolder.git"
+    , version = "work" -- using branch name
+    , dependencies =
+      [ "arrays"
+      , "bifunctors"
+      , "catenable-lists"
+      , "console"
+      , "control"
+      , "effect"
+      , "foldable-traversable"
+      , "free"
+      , "js-uri"
+      , "maybe"
+      , "ordered-collections"
+      , "partial"
+      , "prelude"
+      , "strings"
+      , "test-unit"
+      , "transformers"
+      , "tuples"
+      ]
+    }
